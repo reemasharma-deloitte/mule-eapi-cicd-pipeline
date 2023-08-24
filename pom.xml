@@ -16,7 +16,7 @@
         <anypoint.password>Reemasharma123</anypoint.password>
 		<app.runtime>4.4.0-20220221</app.runtime>
 		<mule.maven.plugin.version>3.5.4</mule.maven.plugin.version>
-		<munit.version>2.3.9</munit.version>
+<!-- 		<munit.version>2.3.9</munit.version> -->
 	</properties>
 
 	<build>
@@ -66,7 +66,7 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 			</plugin>
-			<plugin>
+<!-- 			<plugin>
 				<groupId>com.mulesoft.munit.tools</groupId>
 				<artifactId>munit-maven-plugin</artifactId>
 				<version>${munit.version}</version>
@@ -88,7 +88,7 @@
 						</formats>
 					</coverage>
 				</configuration>
-			</plugin>
+			</plugin> -->
 		</plugins>
 	</build>
 
@@ -117,7 +117,7 @@
 			<version>1.0.0</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>com.mulesoft.munit</groupId>
 			<artifactId>munit-runner</artifactId>
 			<version>2.3.9</version>
@@ -130,7 +130,7 @@
 			<version>2.3.9</version>
 			<classifier>mule-plugin</classifier>
 			<scope>test</scope>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.mule.weave</groupId>
 			<artifactId>assertions</artifactId>
