@@ -1,2 +1,2 @@
-# mule-hospital-bed-availability-eapi_Final
+# mule-hospital-bed-availability-eapi
 Mulesoft project
