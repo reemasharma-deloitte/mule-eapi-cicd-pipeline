@@ -1,0 +1,15 @@
+%dw 2.0
+
+type auto_59d207cd_face_49dc_943c_c9e4480144cd_Output_Payload = {
+  Pin?: String, 
+  State?: String, 
+  HospitalId?: String, 
+  TotalBeds?: Number, 
+  Rating?: Number, 
+  Country?: String, 
+  City?: String, 
+  Review?: String, 
+  HospitalName?: String, 
+  _?: Any
+}
+

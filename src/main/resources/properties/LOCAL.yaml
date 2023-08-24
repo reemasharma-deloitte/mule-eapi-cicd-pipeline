@@ -1,0 +1,35 @@
+http:
+  host: "0.0.0.0"
+  port: "8082"
+  path: "/api/*"
+  protocol: "HTTP"
+  readTimeout: "30000"
+
+
+api:
+  name: "mule-hospital-bed-availability-eapi"
+  version: "v1"
+  autodiscoveryID: "18911956"
+
+httpRequest:
+  host: "mule-hospital-bed-availability-papi.us-e2.cloudhub.io"
+  getAllHospitals: "api/hospitals/allHospitals"
+  getHospitalById: "api/hospitals/allHospitals/{hospitalId}"
+  getAllPatients: "api/patient/allPatients"
+  getPatientById: "api/patient/{patientid}"
+  putReviewAndRating: "api/patient/{patientid}/addReview"
+  putPatientDetails: "api/patient/{patientid}"
+  putDischargePatient: "api/patient/{patientid}/{hospitalId}/dischargePatient"
+  postHospitals: "api/hospitals/register"
+  deleteRegistration: "api/hospitals/deregister/{hospitalId}"
+  postPatients: "api/patient/addpatient"
+  postBulkPatientsDetails: "api/patient/addPatientsInBulk"
+  getAccessCheck: "api/auth/check"
+  frequency: "2000"
+  attempts: "2"
+  buffer: "1024"
+  idle: "30000"
+  responseTimeout: "60000"
+  maxConnections: "-1"
+
+

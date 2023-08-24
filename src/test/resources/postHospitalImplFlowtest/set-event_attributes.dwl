@@ -1,0 +1,33 @@
+{
+  "headers": {
+    "userrole": "admin",
+    "action": "register",
+    "entity": "hospital",
+    "method": "post",
+    "content-type": "application/json",
+    "user-agent": "PostmanRuntime/7.29.2",
+    "accept": "*/*",
+    "cache-control": "no-cache",
+    "postman-token": "0dd75506-34cf-473f-afea-280de43ff38c",
+    "host": "0.0.0.0:8082",
+    "accept-encoding": "gzip, deflate, br",
+    "connection": "keep-alive",
+    "content-length": "201"
+  },
+  "clientCertificate": null,
+  "method": "POST",
+  "scheme": "http",
+  "queryParams": {},
+  "requestUri": "/api/hospitals/register",
+  "queryString": "",
+  "version": "HTTP/1.1",
+  "maskedRequestPath": "/hospitals/register",
+  "listenerPath": "/api/*",
+  "localAddress": "/127.0.0.1:8082",
+  "relativePath": "/api/hospitals/register",
+  "uriParams": {},
+  "rawRequestUri": "/api/hospitals/register",
+  "rawRequestPath": "/api/hospitals/register",
+  "remoteAddress": "/127.0.0.1:63722",
+  "requestPath": "/api/hospitals/register"
+}

@@ -1,0 +1,89 @@
+#%RAML 1.0 DataType 
+type: object
+properties:
+  FirstName:
+    type: string
+    example: Misha
+    required: true
+  LastName:
+    type: string
+    example: Saxena
+    required: true
+  Age:
+    type: integer
+    example: 35
+    required: true
+  Gender:
+    type: string
+    example: Male
+    required: true
+  PhoneNumber:
+    type: integer
+    example: 9897678787
+    required: true
+  Email:
+    type: string
+    example: misha@example.com
+    required: false
+  BloodType:
+    type: string
+    example: O+
+    required: true
+  Address:
+    type: object
+    properties:
+      Area:
+        type: string
+        example: Smriti Nagar
+        required: true
+      City:
+        type: string
+        example: Bhilai
+        required: true
+      State:
+        type: string
+        example: cg
+        required: true
+      Postal:
+        type: string
+        example: '490020'
+        required: true
+      Country:
+        type: string
+        example: india
+        required: true
+  Height:
+    type: integer
+    example: 180
+    required: false
+  Weight:
+    type: integer
+    example: 80
+    required: false
+  Disease:
+    type: string
+    example: Diabetes
+    required: false
+  MedicalDetails:
+    type: string
+    example: Regular check-ups
+    required: false
+  DiagnosisComments:
+    type: string
+    example: Hospital A
+    required: false
+  Status:
+    type: string
+    example: Admitted
+    required: true
+  AdmitDate:
+    type: string
+    example: '2023-08-14T15:00:00Z'
+    required: true
+  HospitalName:
+    type: string
+    example: Hospital A
+    required: true
+
+
+example: !include /examples/postPatientsReqExample.json

@@ -1,0 +1,14 @@
+%dw 2.0
+
+type auto_edcbad9f_fd47_494a_a8e5_05b218492d86_Output_Payload = {
+  reviews: {
+    HospitalId?: String, 
+    Rating?: Number, 
+    Review?: String, 
+    _?: Any
+  }, 
+  message?: String, 
+  status?: String, 
+  _?: Any
+}
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<sub-flow name="putReviewAndRatingImplFlow" doc:id="edcbad9f-fd47-494a-a8e5-05b218492d86" >
+		<json-logger:logger doc:name="Process Started" doc:id="349fe27e-c656-4dbc-85ae-e21d8f67e559" config-ref="JSON_Logger_Config1" message="Update Review and Ratings of Hospital flow started" category="mule-hospital-bed-availability-eapi" />
+		<http:request method="PUT" doc:name="Request to Digital Hospital Bed Availability Process API" doc:id="58268dd0-2fd8-41de-874c-14ff3fde32b0" config-ref="HTTP_Request" path="${httpRequest.putReviewAndRating}">
+			<http:headers><![CDATA[#[output application/java
+---
+{
+	"action" : attributes.headers.'action',
+	"method" : attributes.headers.'method',
+	"userRole" : attributes.headers.'userRole',
+	"entity" : attributes.headers.'entity'
+}]]]></http:headers>
+			<http:uri-params><![CDATA[#[output application/java
+---
+{
+	"patientid" : attributes.uriParams.'patientid'
+}]]]></http:uri-params>
+		</http:request>
+		<json-logger:logger doc:name="Process Started" doc:id="453f6f3f-5227-4beb-af83-944334d71f33" config-ref="JSON_Logger_Config1" message="Update Review and Ratings of Hospital flow completed" category="mule-hospital-bed-availability-eapi" />
+	</sub-flow>
+</mule>

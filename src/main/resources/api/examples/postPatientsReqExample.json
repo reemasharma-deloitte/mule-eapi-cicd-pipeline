@@ -1,0 +1,25 @@
+{
+    "FirstName": "Misha",
+    "LastName": "Saxena",
+    "Age": 35,
+    "Gender": "Male",
+    "PhoneNumber": 9897678787,
+    "Email": "misha@example.com",
+    "BloodType": "O+",
+	"Address": {
+        "Area":"Smriti Nagar",
+        "City":"Bhilai",
+        "State":"cg",
+        "Postal":"490020",
+        "Country":"india"
+        },
+    "Height": 180,
+    "Weight": 80,
+    "Disease": "Diabetes",
+    "MedicalDetails": "Regular check-ups",
+    "DiagnosisComments": "high bp",
+    "Status": "Admitted",
+    "AdmitDate": "2023-08-14T15:00:00Z",
+    "HospitalName": "Hospital A"
+
+}

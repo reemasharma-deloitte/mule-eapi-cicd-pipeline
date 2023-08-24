@@ -1,0 +1,101 @@
+#%RAML 1.0 DataType 
+type: array
+items:
+  type: object
+  properties:
+    area:
+      type: string
+      example: Smriti Nagar
+      required: false
+    country:
+      type: string
+      example: india
+      required: false
+    firstname:
+      type: string
+      example: Shreya
+      required: false
+    disease:
+      type: string
+      example: Diabetes
+      required: false
+    gender:
+      type: string
+      example: Male
+      required: false
+    city:
+      type: string
+      example: Bhilai
+      required: false
+    dischargedate:
+      type: 'null'
+      example: null
+      required: false
+    phonenumber:
+      type: integer
+      example: 1307744195
+      required: false
+    weight:
+      type: integer
+      example: 80
+      required: false
+    admitdate:
+      type: string
+      example: '2023-08-14T15:00:00Z'
+      required: false
+    medicaldetails:
+      type: string
+      example: Regular check-ups
+      required: false
+    lastname:
+      type: string
+      example: Saxena
+      required: false
+    bloodtype:
+      type: string
+      example: O+
+      required: false
+    hospitalid:
+      type: string
+      example: '1'
+      required: false
+    hospitalrating:
+      type: 'null'
+      example: null
+      required: false
+    hospitalname:
+      type: string
+      example: ABC Hospital
+      required: false
+    hospitalreview:
+      type: 'null'
+      example: null
+      required: false
+    state:
+      type: string
+      example: cg
+      required: false
+    postal:
+      type: string
+      example: '490020'
+      required: false
+    age:
+      type: integer
+      example: 35
+      required: false
+    email:
+      type: string
+      example: misha@example.com
+      required: false
+    height:
+      type: integer
+      example: 180
+      required: false
+    status:
+      type: string
+      example: Admitted
+      required: false
+
+
+
+example: !include /examples/postBulkPateintsReqExample.json

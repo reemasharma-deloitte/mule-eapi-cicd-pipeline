@@ -1,0 +1,11 @@
+{
+  "HospitalName": "New ABC Hospital",
+  "City": "Los Angeles",
+  "State": "CA",
+  "Country": "USA",
+  "Pin": "90001",
+  "TotalBeds": 350,
+  "Rating": 4.7,
+  "Area":"Smriti Nagar",
+  "Review": "Great hospital with expanded facilities."
+}

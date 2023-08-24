@@ -1,0 +1,79 @@
+#%RAML 1.0 DataType 
+type: object
+properties:
+  PatientID:
+    type: string
+    required: false
+  FirstName:
+    type: string
+    required: false
+  LastName:
+    type: string
+    required: false
+  Address:
+    type: object
+    properties:
+      Area:
+        type: string
+        required: false
+      City:
+        type: string
+        required: false
+      State:
+        type: string
+        required: false
+      Postal:
+        type: string
+        required: false
+      Country:
+        type: string
+        required: false
+  Age:
+    type: integer
+    required: false
+  Gender:
+    type: string
+    required: false
+  PhoneNumber:
+    type: integer
+    required: false
+  Email:
+    type: string
+    required: false
+  BloodType:
+    type: string
+    required: false
+  Height:
+    type: integer
+    required: false
+  Weight:
+    type: integer
+    required: false
+  Disease:
+    type: string
+    required: false
+  MedicalDetails:
+    type: string
+    required: false
+  Status:
+    type: string
+    required: false
+  AdmitDate:
+    type: string
+    required: false
+  DischargeDate:
+    type: string
+    required: false
+  HospitalId:
+    type: string
+    required: false
+  HospitalReview:
+    type: string
+    required: false
+  HospitalRating:
+    type: number
+    required: false
+
+
+
+example: !include /examples/getPatientByIdRespExample.json

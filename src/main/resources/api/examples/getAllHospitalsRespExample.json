@@ -1,0 +1,41 @@
+{
+"hospitals":
+[
+   {
+      "HospitalId": "HOSP56789",
+      "HospitalName": "ABC Hospital",
+      "City": "New York",
+      "State": "NY",
+      "Country": "USA",
+      "Pin": "10001",
+      "TotalBeds": 300,
+      "Rating": 4.5,
+      "Review": "Great hospital with excellent staff and services."
+    },
+    {
+      "HospitalId": "HOSP78901",
+      "HospitalName": "XYZ Medical Center",
+      "City": "Los Angeles",
+      "State": "CA",
+      "Country": "USA",
+      "Pin": "90001",
+      "TotalBeds": 250,
+      "Rating": 4.2,
+      "Review": "Good medical center with modern facilities."
+    },
+    {
+      "HospitalId": "HOSP23456",
+      "HospitalName": "City General Hospital",
+      "City": "Chicago",
+      "State": "IL",
+      "Country": "USA",
+      "Pin": "60601",
+      "TotalBeds": 400,
+      "Rating": 4.8,
+      "Review": "Top-notch hospital with caring staff."
+    }  
+  ]
+}
+
+
+

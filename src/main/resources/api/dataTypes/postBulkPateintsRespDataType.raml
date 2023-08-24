@@ -1,0 +1,14 @@
+#%RAML 1.0 DataType 
+type: object
+properties:
+  message:
+    type: string
+    example: Processed successfully
+    required: false
+  processedRecordsCount:
+    type: string
+    example: '10'
+    required: false
+
+
+example: !include /examples/postBulkPateintsRespExample.json#%RAML 1.0 DataType

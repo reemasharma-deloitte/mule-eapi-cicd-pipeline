@@ -1,0 +1,9 @@
+#%RAML 1.0 Trait
+displayName: trackable
+usage: Use this header to optionally pass a tracking information to this API, for end-to-end traceability of the operation/transaction. 
+headers: 
+  x-correlation-id:
+    type: string
+    required: false
+    maxLength: 50
+    example: dd872282-abbf-98c2-8c12-f18jjb98988b

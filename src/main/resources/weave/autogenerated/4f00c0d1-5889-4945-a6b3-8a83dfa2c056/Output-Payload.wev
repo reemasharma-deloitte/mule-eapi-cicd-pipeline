@@ -1,0 +1,8 @@
+%dw 2.0
+
+type auto_4f00c0d1_5889_4945_a6b3_8a83dfa2c056_Output_Payload = {
+  Status?: String, 
+  DischargeDate?: String, 
+  _?: Any
+}
+

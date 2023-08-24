@@ -1,0 +1,13 @@
+%dw 2.0
+
+type auto_ccff2f96_531c_4ec4_bea6_acc8da0631d1_Input_Payload = {
+  Area: String, 
+  Pin: String, 
+  State: String, 
+  TotalBeds: Number, 
+  Country: String, 
+  City: String, 
+  HospitalName: String, 
+  _?: Any
+}
+

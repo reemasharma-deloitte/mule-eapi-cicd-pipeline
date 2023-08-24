@@ -1,0 +1,16 @@
+https:
+  host: "localhost"
+  port: "8082"
+  path: "/api/*"
+  protocol: "HTTP"
+  readTimeout: "30000"
+
+
+
+
+api:
+  name: "mule-hospital-bed-availability-papi"
+  version: "v1"
+
+
+

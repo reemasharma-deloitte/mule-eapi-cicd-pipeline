@@ -1,0 +1,23 @@
+  {
+        "FirstName": "John",
+        "LastName": "Doe",
+        "Address": {
+        "Area":"mahabalipuram",
+        "City":"chennai",
+        "State":"tamilnadu",
+        "Postal":"603104",
+        "Country":"india"
+        },
+        "Age": 35,
+        "Gender": "Male",
+        "PhoneNumber": 9897878787,
+        "Email": "john.doe@email.com",
+        "BloodType": "O+",
+        "Height": 180,
+        "Weight": 80,
+        "Disease": "Diabetes",
+        "MedicalDetails": "Regular check-ups",
+        "Status": "Admitted",
+        "AdmitDate": "2023-01-05T03:36:29Z"      
+      
+  }
