@@ -111,12 +111,12 @@
 			<version>1.5.11</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>beec2507-4569-4ba4-82ef-f66dae323fc7</groupId>
 			<artifactId>json-logger-mule4</artifactId>
 			<version>1.0.0</version>
 			<classifier>mule-plugin</classifier>
-		</dependency>
+		</dependency> -->
 <!-- 		<dependency>
 			<groupId>com.mulesoft.munit</groupId>
 			<artifactId>munit-runner</artifactId>
