@@ -1,0 +1,7 @@
+%dw 2.0
+
+type auto_92c50b84_8c06_4803_ad48_b96143a9131c_Output_Payload = {
+  patients: Array<{    Status?: String,     Email?: String,     Address: {      Area?: String,       State?: String,       Country?: String,       City?: String,       Postal?: String,       _?: Any    },     Disease?: String,     FirstName?: String,     HospitalReview?: String,     HospitalId?: String,     Gender?: String,     HospitalRating?: Number,     Weight?: Number,     MedicalDetails?: String,     AdmitDate?: String,     DischargeDate?: String,     PatientID?: String,     PhoneNumber?: Number | String,     Height?: Number,     LastName?: String,     Age?: Number,     BloodType?: String,     _?: Any  }>, 
+  _?: Any
+}
+

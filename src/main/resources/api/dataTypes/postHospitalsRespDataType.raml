@@ -1,0 +1,36 @@
+#%RAML 1.0 DataType 
+type: object
+properties:
+  status:
+    type: string
+    required: false
+  message:
+    type: string
+    required: false
+  patients:
+    type: object
+    properties:
+      HospitalId:
+        type: string
+        required: false
+      HospitalName:
+        type: string
+        required: false
+      City:
+        type: string
+        required: false
+      State:
+        type: string
+        required: false
+      Country:
+        type: string
+        required: false
+      Pin:
+        type: string
+        required: false
+      TotalBeds:
+        type: integer
+        required: false
+
+
+example: !include /examples/postHospitalsRespExample.json

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd ">
+    <apikit:config name="mule-hospital-bed-availability-eapi-config" api="mule-hospital-bed-availability-eapi.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+    <flow name="mule-hospital-bed-availability-eapi-main">
+        <http:listener config-ref="httpListenerConfig1" path="/api/*">
+            <http:response statusCode="#[vars.httpStatus default 200]">
+                <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+            </http:response>
+            <http:error-response statusCode="#[vars.httpStatus default 500]">
+                <http:body>#[payload]</http:body>
+                <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+            </http:error-response>
+        </http:listener>
+        <apikit:router config-ref="mule-hospital-bed-availability-eapi-config" />
+    </flow>
+    <flow name="put:\patient\(patientid)\addReview:application\json:mule-hospital-bed-availability-eapi-config">
+        <flow-ref doc:name="Flow Reference to putReviewAndRatingImplFlow" doc:id="b51baa26-3678-46b7-8ee7-0ec6951f3dd6" name="putReviewAndRatingImplFlow" />
+    </flow>
+    <flow name="put:\patient\(patientid)\(hospitalId)\dischargePatient:application\json:mule-hospital-bed-availability-eapi-config">
+        <flow-ref doc:name="Flow Reference to putDischargePatientImplFlow" doc:id="a6d4ce44-282b-4f98-abbd-6ebfe51110d3" name="putDischargePatientImplFlow" />
+    </flow>
+    <flow name="put:\patient\(patientid):application\json:mule-hospital-bed-availability-eapi-config">
+        <flow-ref doc:name="Flow Reference to putUpdatePatientDetailsImpFlow" doc:id="116b6944-fa9b-4a96-98ab-3c9751862298" name="putUpdatePatientDetailsImpFlow" />
+    </flow>
+    <flow name="delete:\hospitals\deregister\(hospitalId):mule-hospital-bed-availability-eapi-config">
+        <flow-ref doc:name="Flow Reference to deleteRegistrationImplFlow" doc:id="47d6e46c-03a3-4702-851a-abfe4b3a9d84" name="deleteRegistrationImplFlow" />
+    </flow>
+    <flow name="get:\hospitals\allHospitals:mule-hospital-bed-availability-eapi-config">
+        <flow-ref doc:name="Flow Reference to getAllHospitalsImplFlow" doc:id="fdd3f815-9bae-42b5-9fac-43685f1a1e6c" name="getAllHospitalsImplFlow" />
+    </flow>
+    <flow name="get:\patient\allPatients:mule-hospital-bed-availability-eapi-config">
+        <flow-ref doc:name="Flow Reference to getAllPatientsImpFlow" doc:id="d4da28ce-da23-44a1-8d49-506a5041546e" name="getAllPatientsImpFlow" />
+    </flow>
+    <flow name="get:\hospitals\allHospitals\(hospitalId):mule-hospital-bed-availability-eapi-config">
+        <flow-ref doc:name="Flow Reference to getHospitalByIdImplFlow" doc:id="263c07db-057b-4ee6-a001-d6322ccf4d78" name="getHospitalByIdImplFlow" />
+    </flow>
+    <flow name="get:\patient\(patientid):mule-hospital-bed-availability-eapi-config">
+        <flow-ref doc:name="Flow Reference to getPatientByIdImplFlow" doc:id="a37fdd4b-04da-4bfb-9743-ba97e631b910" name="getPatientByIdImplFlow" />
+    </flow>
+    <flow name="post:\patient\addpatient:application\json:mule-hospital-bed-availability-eapi-config">
+        <flow-ref doc:name="Flow Reference to postPatientImplFlow" doc:id="b578a8db-a64a-40ff-adaf-fa6e44740587" name="postPatientImplFlow" />
+    </flow>
+    <flow name="post:\hospitals\register:application\json:mule-hospital-bed-availability-eapi-config">
+        <flow-ref doc:name="Flow Reference to postHospitalImplFlow" doc:id="9da276d2-5187-420e-96af-a50454236125" name="postHospitalImplFlow" />
+    </flow>
+    <flow name="post:\patient\addPatientsInBulk:application\json:mule-hospital-bed-availability-eapi-config">
+		<logger level="INFO" doc:name="Logger" doc:id="5b361e7d-eb90-4b5c-b440-6f02005bfbd1" message="start"/>
+    </flow>
+</mule>

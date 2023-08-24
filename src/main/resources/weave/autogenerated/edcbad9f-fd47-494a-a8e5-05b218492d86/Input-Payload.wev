@@ -1,0 +1,9 @@
+%dw 2.0
+
+type auto_edcbad9f_fd47_494a_a8e5_05b218492d86_Input_Payload = {
+  HospitalId?: String, 
+  Rating?: Number, 
+  Review?: String, 
+  _?: Any
+}
+

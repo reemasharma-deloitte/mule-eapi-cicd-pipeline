@@ -1,0 +1,60 @@
+ {
+"patients": [
+      {
+        "PatientID": "PAT12345",
+        "FirstName": "John",
+        "LastName": "Doe",
+        "Address": {
+        "Area":"mahabalipuram",
+        "City":"chennai",
+        "State":"tamilnadu",
+        "Postal":"603104",
+        "Country":"india"
+        },
+        "Age": 35,
+        "Gender": "Male",
+        "PhoneNumber": 9897878787,
+        "Email": "john.doe@email.com",
+        "BloodType": "O+",
+        "Height": 180,
+        "Weight": 80,
+        "Disease": "Diabetes",
+        "MedicalDetails": "Regular check-ups",
+        "Status": "Admitted",
+        "AdmitDate": "2023-01-05T03:36:29Z",
+        "DischargeDate": "2023-01-12T03:36:29Z",
+        "HospitalId": "2" ,
+        "HospitalReview":"Good Facility",
+        "HospitalRating":4.5
+
+  },
+    {
+      "PatientID": "PAT12346",
+      "FirstName": "Jane",
+      "LastName": "Smith",
+       "Address": {
+        "Area":"mahabalipuram",
+        "City":"chennai",
+        "State":"tamilnadu",
+        "Postal":"603104",
+        "Country":"india"
+        },
+      "Age": 28,
+      "Gender": "Female",
+      "PhoneNumber": "9898983331",
+      "Email": "jane.smith@email.com",
+      "BloodType": "A-",
+      "Height": 165,
+      "Weight": 60,
+      "Disease": "Asthma",
+      "MedicalDetails": "Inhaler usage",
+      "Status": "Admitted",
+      "AdmitDate": "2023-01-05T03:36:29Z",
+      "DischargeDate": "2023-01-05T03:36:29Z",
+      "HospitalId": "2" ,
+      "HospitalReview":"Good Facility",
+      "HospitalRating":4.5
+    }
+  ]
+}
+

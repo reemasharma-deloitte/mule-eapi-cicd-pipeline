@@ -1,0 +1,11 @@
+{
+      "HospitalId": "HOSP56789",
+      "HospitalName": "ABC Hospital",
+      "City": "New York",
+      "State": "NY",
+      "Country": "USA",
+      "Pin": "10001",
+      "TotalBeds": 300,
+      "Rating": 4.5,
+      "Review": "Great hospital with excellent staff and services."
+}

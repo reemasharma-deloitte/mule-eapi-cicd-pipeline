@@ -1,0 +1,224 @@
+#%RAML 1.0
+title: Digital Hospital Bed Availability EAPI
+
+
+protocols:
+  - HTTP
+
+description: This API basically interacts with the Digital Hospital Bed Availability Process API.
+
+uses: 
+  CommonResource: /exchange_modules/9953a7ab-f114-4f08-b6c0-ba1a5f667655/common-resource/1.0.0/common-resource.raml
+
+traits:
+  commonHeaders:
+    headers:
+      userRole:
+        displayName: User Action
+        type: string
+        required: true
+      action:
+        displayName: Action
+        type: string
+        required: true
+      method:
+        displayName: Method
+        type: string
+        required: true
+      entity:
+        displayName: Entity
+        type: string
+        required: true
+
+types:
+  GetAllPatientsResponse : !include /dataTypes/getAllPatientDataType.raml
+  GetPatientByIdResponse: !include /dataTypes/getPatientByIdRespDataType.raml
+  PostPatientsRequest: !include /dataTypes/postPatientsReqDataType.raml
+  PostPatientsResponse: !include /dataTypes/postPatientsRespDataType.raml
+  PutPatientDetailsRequest: !include /dataTypes/putPatientDetailsReqDataType.raml
+  PutPatientDetailsResponse: !include /dataTypes/putPatientDetailsRespDataType.raml
+  GetAllHospitalsDetailsResponse: !include /dataTypes/getAllHospitalsRespDataType.raml
+  GetHospitalById: !include /dataTypes/getHospitalByIdDataType.raml
+  PostHospitalsRequest: !include /dataTypes/postHospitalsReqDataType.raml
+  PostHospitalsResponse: !include /dataTypes/postHospitalsRespDataType.raml
+  DeleteRegistrationResp: !include /dataTypes/deleteRegistrationRespDataType.raml
+  PutReviewRequest: !include /dataTypes/putReviewAndRatingReqDataType.raml
+  PutReviewResponse: !include /dataTypes/putReviewAndRatingRespDataType.raml
+  PutDischargePatientsRequest: !include /dataTypes/putDischargePatientsReqDataType.raml
+  PutDischargePatientsResponse: !include /dataTypes/putDischargePatientsReqDataType.raml
+  PostBulkPatientsRequest: !include /dataTypes/postBulkPateintsReqDataType.raml
+  PostBulkPatientsResponse: !include /dataTypes/postBulkPateintsRespDataType.raml
+
+
+
+/patient:
+
+  /allPatients:
+    description: Retrieves all patient details of a specific hospital
+    get:
+      is: [CommonResource.trackable, CommonResource.error-responses , commonHeaders]
+      queryParameters:
+        hospitalId:
+          required: true
+          type: string
+          displayName: hospitalId
+      responses:
+          200:
+            body:
+              application/json:
+                type: GetAllPatientsResponse
+    
+  /{patientid}:
+      description: Retrieve details of a patient in the hospital.
+      get:
+        is: [CommonResource.trackable, CommonResource.error-responses , commonHeaders]
+        displayName: Gets Patient Details
+        description: Gets details of a patient
+        responses:
+          200:
+            body:
+              application/json:
+                type: GetPatientByIdResponse
+  
+      put:
+        is: [CommonResource.trackable, CommonResource.error-responses , commonHeaders]
+        displayName: Update Patient Details
+        description: Update Details of a patient admitted in the hospital.
+        body:
+          application/json:
+            type: PutPatientDetailsRequest
+        responses:
+          201:
+            body:
+              application/json:
+                type: PutPatientDetailsResponse
+
+      /addReview:
+        put:
+           is: [CommonResource.trackable, CommonResource.error-responses , commonHeaders]
+           displayName: Add Review and Rating of Hospital
+           description: Adds reviews and rating given by Patient for the specific hospital
+           body:
+              application/json:
+                 type: PutReviewRequest
+           responses:
+             201:
+                body:
+                  application/json:
+                     type: PutReviewResponse
+
+
+      /{hospitalId}/dischargePatient:
+         description: Discharge patient from the hospital
+         put:
+           is: [CommonResource.trackable, CommonResource.error-responses , commonHeaders]
+           displayName: Discharge admitted patients.
+           description: Discharge admitted pateints from the hospital.     
+           body:
+              application/json:
+                type: PutDischargePatientsRequest
+           responses:
+              201:
+                body:
+                   application/json:
+                      type: PutDischargePatientsResponse
+ 
+
+  /addpatient:
+     description: Admit Patient in the hospital.
+     post:
+       is: [CommonResource.trackable, CommonResource.error-responses , commonHeaders]
+       displayName: Admit new patients.
+       description: Admit new pateints in the hospital.     
+       body:
+         application/json:
+           type: PostPatientsRequest
+       responses:
+         201:
+           body:
+             application/json:
+               type: PostPatientsResponse
+
+  /addPatientsInBulk:
+     description: Admit Patients in bulk  in the hospital.
+     post:
+       is: [CommonResource.trackable, CommonResource.error-responses , commonHeaders]
+       displayName: Admit new patients.
+       description: Admit new pateints in bulk the hospital.     
+       body:
+         application/json:
+           type: PostBulkPatientsRequest
+       responses:
+         201:
+           body:
+             application/json:
+               type: PostBulkPatientsResponse
+      
+/hospitals:
+
+  /allHospitals:
+    description: Retrieves All Hospital Details according to a particular hospital 
+    get:
+      is: [CommonResource.trackable, CommonResource.error-responses , commonHeaders]
+      displayName: Gets All Hospitals
+      description: Gets details of all hospitals
+      queryParameters:
+        area:
+          required: false
+          type: string
+        city:
+          required: false
+          type: string
+        rating:
+          required: false
+          type: string
+        hospitalName:
+          required: false
+          type: string
+        sort_order:
+          required: false
+          type: string
+
+      responses:
+          200:
+            body:
+              application/json:
+                type: GetAllHospitalsDetailsResponse
+
+
+    /{hospitalId}:
+      description: Update particular hospital details. 
+      get:
+        is: [CommonResource.trackable, CommonResource.error-responses , commonHeaders]
+        displayName: Gets Hospital details.
+        description: Gets details of a particular hospital by hospitalId.
+        responses:
+            200:
+              body:
+                 application/json:
+                   type: GetHospitalById
+
+  /register:
+     post:
+       is: [CommonResource.trackable, CommonResource.error-responses , commonHeaders]
+       displayName: Register new hospitals.
+       description: Register new hospitals in the portal.
+       body:
+         application/json:
+           type: PostHospitalsRequest
+       responses:
+         201:
+           body:
+             application/json:
+               type: PostHospitalsResponse
+
+  /deregister/{hospitalId}:
+     delete:
+       is: [CommonResource.trackable, CommonResource.error-responses , commonHeaders]
+       displayName: Deregister hospital 
+       description: Deregister hospital from portal
+       responses:
+           200:
+             body:
+                application/json:
+                  type: DeleteRegistrationResp     

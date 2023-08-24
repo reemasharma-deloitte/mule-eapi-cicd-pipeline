@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="mule-hospital-bed-availability-eapi-suite.xml" />
+	<munit:test name="put:\patient\(patientid)\addReview:application\json:mule-hospital-bed-availability-eapi-config-test" doc:id="460c61e9-eefa-478c-bebd-984fd329f27e" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock Flow Reference to putReviewAndRatingImplFlow" doc:id="9363109d-84ec-4e2f-aeb4-ff7365ba2874" processor="flow-ref">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="b51baa26-3678-46b7-8ee7-0ec6951f3dd6" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value="#[output application/json --- readUrl('classpath://putpatientpatientidaddReviewapplicationjsonmulehospitalbedavailabilityeapiconfigtest\mock_payload.dwl')]" mediaType="application/json" encoding="UTF-8" />
+					<munit-tools:attributes value="#[readUrl('classpath://putpatientpatientidaddReviewapplicationjsonmulehospitalbedavailabilityeapiconfigtest\mock_attributes.dwl')]" />
+					<munit-tools:variables >
+						<munit-tools:variable key="outboundHeaders" value="#[readUrl('classpath://putpatientpatientidaddReviewapplicationjsonmulehospitalbedavailabilityeapiconfigtest\mock_variable_.dwl')]" />
+					</munit-tools:variables>
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+			<munit:set-event doc:name="Set Input" doc:id="28aadada-0689-4ff6-8238-5b576cef62ee" >
+				<munit:payload value="#[output application/json --- readUrl('classpath://putpatientpatientidaddReviewapplicationjsonmulehospitalbedavailabilityeapiconfigtest\set-event_payload.dwl')]" encoding="UTF-8" mediaType="application/json" />
+				<munit:attributes value="#[readUrl('classpath://putpatientpatientidaddReviewapplicationjsonmulehospitalbedavailabilityeapiconfigtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://putpatientpatientidaddReviewapplicationjsonmulehospitalbedavailabilityeapiconfigtest\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to put:\patient\(patientid)\addReview:application\json:mule-hospital-bed-availability-eapi-config" doc:id="b61a63ac-e6b9-47e2-90cd-df279c5efad5" name="put:\patient\(patientid)\addReview:application\json:mule-hospital-bed-availability-eapi-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="c92b4265-059d-41e3-819f-8a60f580e6d3" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import putpatientpatientidaddReviewapplicationjsonmulehospitalbedavailabilityeapiconfigtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="put:\patient\(patientid)\(hospitalId)\dischargePatient:application\json:mule-hospital-bed-availability-eapi-config-test" doc:id="13a594f6-5c56-4f2b-aa81-045576301001" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock Flow Reference to putDischargePatientImplFlow" doc:id="8b513812-2b8c-41d4-9abf-8f5f3abab064" processor="flow-ref">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="a6d4ce44-282b-4f98-abbd-6ebfe51110d3" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value="#[output application/json --- readUrl('classpath://putpatientpatientidhospitalIddischargePatientapplicationjsonmulehospitalbedavailabilityeapiconfigtest\mock_payload.dwl')]" mediaType="application/json" encoding="UTF-8" />
+					<munit-tools:attributes value="#[readUrl('classpath://putpatientpatientidhospitalIddischargePatientapplicationjsonmulehospitalbedavailabilityeapiconfigtest\mock_attributes.dwl')]" />
+					<munit-tools:variables >
+						<munit-tools:variable key="outboundHeaders" value="#[readUrl('classpath://putpatientpatientidhospitalIddischargePatientapplicationjsonmulehospitalbedavailabilityeapiconfigtest\mock_variable_.dwl')]" />
+					</munit-tools:variables>
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+			<munit:set-event doc:name="Set Input" doc:id="a24f05fd-4ccc-40b8-979d-769d629e7c73" >
+				<munit:payload value="#[output application/json --- readUrl('classpath://putpatientpatientidhospitalIddischargePatientapplicationjsonmulehospitalbedavailabilityeapiconfigtest\set-event_payload.dwl')]" encoding="UTF-8" mediaType="application/json" />
+				<munit:attributes value="#[readUrl('classpath://putpatientpatientidhospitalIddischargePatientapplicationjsonmulehospitalbedavailabilityeapiconfigtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://putpatientpatientidhospitalIddischargePatientapplicationjsonmulehospitalbedavailabilityeapiconfigtest\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to put:\patient\(patientid)\(hospitalId)\dischargePatient:application\json:mule-hospital-bed-availability-eapi-config" doc:id="83afe5f7-4869-48ef-897e-296808ddaa30" name="put:\patient\(patientid)\(hospitalId)\dischargePatient:application\json:mule-hospital-bed-availability-eapi-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="7f722c98-7c1a-4571-82fc-bcb50647c3da" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import putpatientpatientidhospitalIddischargePatientapplicationjsonmulehospitalbedavailabilityeapiconfigtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="put:\patient\(patientid):application\json:mule-hospital-bed-availability-eapi-config-test" doc:id="5dbcaf98-b2bd-46cf-b861-3ea9c3b15eb6" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock Flow Reference to putUpdatePatientDetailsImpFlow" doc:id="72bdea64-5439-4c16-bc49-074a1422df37" processor="flow-ref">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="116b6944-fa9b-4a96-98ab-3c9751862298" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value="#[output application/json --- readUrl('classpath://putpatientpatientidapplicationjsonmulehospitalbedavailabilityeapiconfigtest\mock_payload.dwl')]" mediaType="application/json" encoding="UTF-8" />
+					<munit-tools:attributes value="#[readUrl('classpath://putpatientpatientidapplicationjsonmulehospitalbedavailabilityeapiconfigtest\mock_attributes.dwl')]" />
+					<munit-tools:variables >
+						<munit-tools:variable key="outboundHeaders" value="#[readUrl('classpath://putpatientpatientidapplicationjsonmulehospitalbedavailabilityeapiconfigtest\mock_variable_.dwl')]" />
+					</munit-tools:variables>
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+			<munit:set-event doc:name="Set Input" doc:id="811cdd55-2660-49dc-a7a2-ef651ce789f3" >
+				<munit:payload value="#[output application/json --- readUrl('classpath://putpatientpatientidapplicationjsonmulehospitalbedavailabilityeapiconfigtest\set-event_payload.dwl')]" encoding="UTF-8" mediaType="application/json" />
+				<munit:attributes value="#[readUrl('classpath://putpatientpatientidapplicationjsonmulehospitalbedavailabilityeapiconfigtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://putpatientpatientidapplicationjsonmulehospitalbedavailabilityeapiconfigtest\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to put:\patient\(patientid):application\json:mule-hospital-bed-availability-eapi-config" doc:id="50489885-7965-4d87-95bf-c0fec3a3e6a7" name="put:\patient\(patientid):application\json:mule-hospital-bed-availability-eapi-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="2d9e8887-2615-4ac7-8ee9-5be7f5ad48d7" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import putpatientpatientidapplicationjsonmulehospitalbedavailabilityeapiconfigtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="delete:\hospitals\deregister\(hospitalId):mule-hospital-bed-availability-eapi-config-test" doc:id="2729e899-e78a-4886-9bf4-d8d33500b4b3" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock Flow Reference to deleteRegistrationImplFlow" doc:id="9703625d-a958-45c5-829e-a461ea67d164" processor="flow-ref">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="47d6e46c-03a3-4702-851a-abfe4b3a9d84" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value="#[output application/json --- readUrl('classpath://deletehospitalsderegisterhospitalIdmulehospitalbedavailabilityeapiconfigtest\mock_payload.dwl')]" mediaType="application/json" encoding="UTF-8" />
+					<munit-tools:attributes value="#[readUrl('classpath://deletehospitalsderegisterhospitalIdmulehospitalbedavailabilityeapiconfigtest\mock_attributes.dwl')]" />
+					<munit-tools:variables >
+						<munit-tools:variable key="outboundHeaders" value="#[readUrl('classpath://deletehospitalsderegisterhospitalIdmulehospitalbedavailabilityeapiconfigtest\mock_variable_.dwl')]" />
+					</munit-tools:variables>
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+			<munit:set-event doc:name="Set Input" doc:id="5e9a83c4-4f6c-4963-9f7e-94a77a5c27cf" >
+				<munit:payload value="#[readUrl('classpath://deletehospitalsderegisterhospitalIdmulehospitalbedavailabilityeapiconfigtest\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://deletehospitalsderegisterhospitalIdmulehospitalbedavailabilityeapiconfigtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://deletehospitalsderegisterhospitalIdmulehospitalbedavailabilityeapiconfigtest\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to delete:\hospitals\deregister\(hospitalId):mule-hospital-bed-availability-eapi-config" doc:id="e134d0a6-9a2a-41cb-9f9a-428e67222135" name="delete:\hospitals\deregister\(hospitalId):mule-hospital-bed-availability-eapi-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="f081c536-5887-4e19-b576-7301c0c5b200" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import deletehospitalsderegisterhospitalIdmulehospitalbedavailabilityeapiconfigtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="get:\hospitals\allHospitals:mule-hospital-bed-availability-eapi-config-test" doc:id="1bd99d8b-d7b2-44dc-89a9-ee5553ecc325" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock Flow Reference to getAllHospitalsImplFlow" doc:id="da2fc8b6-bda0-44eb-b60f-8f15fa98c9e7" processor="flow-ref">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="fdd3f815-9bae-42b5-9fac-43685f1a1e6c" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value="#[output application/json --- readUrl('classpath://gethospitalsallHospitalsmulehospitalbedavailabilityeapiconfigtest\mock_payload.dwl')]" mediaType="application/json" encoding="UTF-8" />
+					<munit-tools:attributes value="#[readUrl('classpath://gethospitalsallHospitalsmulehospitalbedavailabilityeapiconfigtest\mock_attributes.dwl')]" />
+					<munit-tools:variables >
+						<munit-tools:variable key="outboundHeaders" value="#[readUrl('classpath://gethospitalsallHospitalsmulehospitalbedavailabilityeapiconfigtest\mock_variable_.dwl')]" />
+					</munit-tools:variables>
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+			<munit:set-event doc:name="Set Input" doc:id="d4762ea9-a48f-4546-84d4-5103948b66d2" >
+				<munit:payload value="#[readUrl('classpath://gethospitalsallHospitalsmulehospitalbedavailabilityeapiconfigtest\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://gethospitalsallHospitalsmulehospitalbedavailabilityeapiconfigtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://gethospitalsallHospitalsmulehospitalbedavailabilityeapiconfigtest\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\hospitals\allHospitals:mule-hospital-bed-availability-eapi-config" doc:id="69853938-bf7d-4612-9edf-113caf2e9191" name="get:\hospitals\allHospitals:mule-hospital-bed-availability-eapi-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="5cc14dd3-0884-480a-a45e-7b58f53de8e1" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import gethospitalsallHospitalsmulehospitalbedavailabilityeapiconfigtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="get:\patient\allPatients:mule-hospital-bed-availability-eapi-config-test" doc:id="cf4b1af3-753a-4faa-8dfa-3ffb87bdfa18" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock Flow Reference to getAllPatientsImpFlow" doc:id="a372b58a-179e-4be8-a96c-4457a75468e8" processor="flow-ref">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="d4da28ce-da23-44a1-8d49-506a5041546e" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value="#[output application/json --- readUrl('classpath://getpatientallPatientsmulehospitalbedavailabilityeapiconfigtest\mock_payload.dwl')]" mediaType="application/json" encoding="UTF-8" />
+					<munit-tools:attributes value="#[readUrl('classpath://getpatientallPatientsmulehospitalbedavailabilityeapiconfigtest\mock_attributes.dwl')]" />
+					<munit-tools:variables >
+						<munit-tools:variable key="outboundHeaders" value="#[readUrl('classpath://getpatientallPatientsmulehospitalbedavailabilityeapiconfigtest\mock_variable_.dwl')]" />
+					</munit-tools:variables>
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+			<munit:set-event doc:name="Set Input" doc:id="95610679-c969-4117-9739-0beea6fd031a" >
+				<munit:payload value="#[readUrl('classpath://getpatientallPatientsmulehospitalbedavailabilityeapiconfigtest\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://getpatientallPatientsmulehospitalbedavailabilityeapiconfigtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://getpatientallPatientsmulehospitalbedavailabilityeapiconfigtest\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\patient\allPatients:mule-hospital-bed-availability-eapi-config" doc:id="353835a5-eb8b-4831-a16d-208551af0123" name="get:\patient\allPatients:mule-hospital-bed-availability-eapi-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="942fd97d-cc4d-440b-82dc-4cc9cca8bcb3" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import getpatientallPatientsmulehospitalbedavailabilityeapiconfigtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="get:\hospitals\allHospitals\(hospitalId):mule-hospital-bed-availability-eapi-config-test" doc:id="82414070-30b1-49ff-bcf2-36312d31e4b4" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock Flow Reference to getHospitalByIdImplFlow" doc:id="e40eb466-7d52-41fc-b34c-3bf810e4af24" processor="flow-ref">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="263c07db-057b-4ee6-a001-d6322ccf4d78" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value="#[output application/json --- readUrl('classpath://gethospitalsallHospitalshospitalIdmulehospitalbedavailabilityeapiconfigtest\mock_payload.dwl')]" mediaType="application/json" encoding="UTF-8" />
+					<munit-tools:attributes value="#[readUrl('classpath://gethospitalsallHospitalshospitalIdmulehospitalbedavailabilityeapiconfigtest\mock_attributes.dwl')]" />
+					<munit-tools:variables >
+						<munit-tools:variable key="outboundHeaders" value="#[readUrl('classpath://gethospitalsallHospitalshospitalIdmulehospitalbedavailabilityeapiconfigtest\mock_variable_.dwl')]" />
+					</munit-tools:variables>
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+			<munit:set-event doc:name="Set Input" doc:id="76676450-0e66-4493-9d6f-ca6328451c43" >
+				<munit:payload value="#[readUrl('classpath://gethospitalsallHospitalshospitalIdmulehospitalbedavailabilityeapiconfigtest\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://gethospitalsallHospitalshospitalIdmulehospitalbedavailabilityeapiconfigtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://gethospitalsallHospitalshospitalIdmulehospitalbedavailabilityeapiconfigtest\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\hospitals\allHospitals\(hospitalId):mule-hospital-bed-availability-eapi-config" doc:id="e596675f-8b7d-4404-a917-52f5a08359be" name="get:\hospitals\allHospitals\(hospitalId):mule-hospital-bed-availability-eapi-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="a75817a5-eee6-479d-a24d-785b606deb69" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import gethospitalsallHospitalshospitalIdmulehospitalbedavailabilityeapiconfigtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="get:\patient\(patientid):mule-hospital-bed-availability-eapi-config-test" doc:id="1aca9653-bc65-481c-a01b-81d4b1905aa4" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock Flow Reference to getPatientByIdImplFlow" doc:id="8cb83f47-ac97-4e97-b26a-1528fe2b6c17" processor="flow-ref">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="a37fdd4b-04da-4bfb-9743-ba97e631b910" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value="#[output application/json --- readUrl('classpath://getpatientpatientidmulehospitalbedavailabilityeapiconfigtest\mock_payload.dwl')]" mediaType="application/json" encoding="UTF-8" />
+					<munit-tools:attributes value="#[readUrl('classpath://getpatientpatientidmulehospitalbedavailabilityeapiconfigtest\mock_attributes.dwl')]" />
+					<munit-tools:variables >
+						<munit-tools:variable key="outboundHeaders" value="#[readUrl('classpath://getpatientpatientidmulehospitalbedavailabilityeapiconfigtest\mock_variable_.dwl')]" />
+					</munit-tools:variables>
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+			<munit:set-event doc:name="Set Input" doc:id="8d17a9e7-d1e8-4dfd-a5c9-e76e4f6d9fba" >
+				<munit:payload value="#[readUrl('classpath://getpatientpatientidmulehospitalbedavailabilityeapiconfigtest\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://getpatientpatientidmulehospitalbedavailabilityeapiconfigtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://getpatientpatientidmulehospitalbedavailabilityeapiconfigtest\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\patient\(patientid):mule-hospital-bed-availability-eapi-config" doc:id="5304c247-0c7c-4b23-af5b-4654d673a85d" name="get:\patient\(patientid):mule-hospital-bed-availability-eapi-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="55325891-bc42-4d55-a5b4-18d8712ef980" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import getpatientpatientidmulehospitalbedavailabilityeapiconfigtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="post:\hospitals\register:application\json:mule-hospital-bed-availability-eapi-config-test" doc:id="7170a9d4-aa7c-453a-b013-735fa6067d27" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock Flow Reference to postHospitalImplFlow" doc:id="cf8dc410-a7d4-472d-a117-7fa8960407c3" processor="flow-ref">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="9da276d2-5187-420e-96af-a50454236125" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value="#[output application/json --- readUrl('classpath://posthospitalsregisterapplicationjsonmulehospitalbedavailabilityeapiconfigtest\mock_payload.dwl')]" mediaType="application/json" encoding="UTF-8" />
+					<munit-tools:attributes value="#[readUrl('classpath://posthospitalsregisterapplicationjsonmulehospitalbedavailabilityeapiconfigtest\mock_attributes.dwl')]" />
+					<munit-tools:variables >
+						<munit-tools:variable key="outboundHeaders" value="#[readUrl('classpath://posthospitalsregisterapplicationjsonmulehospitalbedavailabilityeapiconfigtest\mock_variable_.dwl')]" />
+					</munit-tools:variables>
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+			<munit:set-event doc:name="Set Input" doc:id="c9d0dca2-225e-4ad8-afee-e09ea9d402cc" >
+				<munit:payload value="#[output application/json --- readUrl('classpath://posthospitalsregisterapplicationjsonmulehospitalbedavailabilityeapiconfigtest\set-event_payload.dwl')]" encoding="UTF-8" mediaType="application/json" />
+				<munit:attributes value="#[readUrl('classpath://posthospitalsregisterapplicationjsonmulehospitalbedavailabilityeapiconfigtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://posthospitalsregisterapplicationjsonmulehospitalbedavailabilityeapiconfigtest\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to post:\hospitals\register:application\json:mule-hospital-bed-availability-eapi-config" doc:id="76a43670-52dc-4cdd-98b3-9d4963306fa2" name="post:\hospitals\register:application\json:mule-hospital-bed-availability-eapi-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="cfcc3e85-738d-49fd-8766-b0c8cdc65a96" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import posthospitalsregisterapplicationjsonmulehospitalbedavailabilityeapiconfigtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

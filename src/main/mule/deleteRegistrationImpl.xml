@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<sub-flow name="deleteRegistrationImplFlow" doc:id="50398c6c-50e8-4686-b720-4eb1d18d5c12" >
+		<json-logger:logger doc:name="Process Started" doc:id="0bc7a54c-42a3-4537-82b9-65193801f75c" config-ref="JSON_Logger_Config1" category="mule-hospital-bed-availability-eapi" message="Dereigter hospital flow started "/>
+		<http:request method="DELETE" doc:name="Request to Digital Hospital Bed Availability Process API" doc:id="df9680ab-78f6-494f-9e1c-ccc7a1fbac70" config-ref="HTTP_Request" path="${httpRequest.deleteRegistration}">
+			<http:headers><![CDATA[#[output application/java
+---
+{
+	"action" : attributes.headers.'action',
+	"method" : attributes.headers.'method',
+	"userRole" : attributes.headers.'userRole',
+	"entity" : attributes.headers.'entity'
+}]]]></http:headers>
+			<http:uri-params ><![CDATA[#[output application/java
+---
+{
+	"hospitalId" : attributes.uriParams.'hospitalId'
+}]]]></http:uri-params>
+		</http:request>
+		<json-logger:logger doc:name="Process Completed" doc:id="789f61fe-e45f-4e08-8162-a8efb90c0e87" config-ref="JSON_Logger_Config1" message="Dereigter hospital flow completed" tracePoint="END" category="mule-hospital-bed-availability-eapi" />
+	</sub-flow>
+</mule>

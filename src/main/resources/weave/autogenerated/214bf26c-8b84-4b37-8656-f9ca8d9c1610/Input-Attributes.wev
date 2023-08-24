@@ -1,0 +1,34 @@
+%dw 2.0
+
+type auto_214bf26c_8b84_4b37_8656_f9ca8d9c1610_Input_Attributes = {|
+  clientCertificate?: {|
+    publicKey?: {|  |}, 
+    "type"?: String, 
+    encoded?: Binary
+  |}, 
+  headers: {|
+    userRole: String, 
+    action: String, 
+    method: String, 
+    entity: String
+  |}, 
+  listenerPath: String, 
+  method: String, 
+  queryParams: {|
+    area?: String, 
+    city?: String, 
+    rating?: String, 
+    hospitalName?: String, 
+    sort_order?: String
+  |}, 
+  queryString: String, 
+  relativePath: String, 
+  remoteAddress: String, 
+  requestPath: String, 
+  requestUri: String, 
+  scheme: String, 
+  uriParams: {|  |}, 
+  version: String, 
+  localAddress: String
+|}
+

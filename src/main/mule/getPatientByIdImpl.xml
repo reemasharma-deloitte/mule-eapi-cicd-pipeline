@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<sub-flow name="getPatientByIdImplFlow" doc:id="406aa018-1c67-4b8b-ba6d-9de982a29189" >
+		<json-logger:logger doc:name="Process Started" doc:id="7de4fb91-4441-4703-a4e3-83c649023d93" config-ref="JSON_Logger_Config1" message="Retrieve patient details flow started" category="mule-hospital-bed-availability-eapi" />
+		<http:request method="GET" doc:name="Request to Digital Hospital Bed Availability Process API" doc:id="45155c4a-3fd2-4db2-a814-c0a8d83afabc" config-ref="HTTP_Request" path="${httpRequest.getPatientById}">
+			<http:headers><![CDATA[#[output application/java
+---
+{
+	"action" : attributes.headers.'action',
+	"method" : attributes.headers.'method',
+	"userRole" : attributes.headers.'userRole',
+	"entity" : attributes.headers.'entity'
+}]]]></http:headers>
+			<http:uri-params><![CDATA[#[output application/java
+---
+{
+	"patientid" : attributes.uriParams.'patientid'
+}]]]></http:uri-params>
+			<http:query-params><![CDATA[#[output application/java
+---
+{
+	"" : ""
+}]]]></http:query-params>
+		</http:request>
+		<json-logger:logger doc:name="Process Completed" doc:id="d8b65a1e-87b2-4ff7-b5ec-06dc79e2dd65" config-ref="JSON_Logger_Config1" message="Retrieve patient details flow completed" tracePoint="END" category="mule-hospital-bed-availability-eapi" />
+	</sub-flow>
+</mule>

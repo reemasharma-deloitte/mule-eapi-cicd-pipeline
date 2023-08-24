@@ -1,0 +1,32 @@
+%dw 2.0
+
+type auto_406aa018_1c67_4b8b_ba6d_9de982a29189_Output_Payload = {
+  Status?: String, 
+  Email?: String, 
+  Address: {
+    Area?: String, 
+    State?: String, 
+    Country?: String, 
+    City?: String, 
+    Postal?: String, 
+    _?: Any
+  }, 
+  Disease?: String, 
+  FirstName?: String, 
+  HospitalReview?: String, 
+  HospitalId?: String, 
+  Gender?: String, 
+  HospitalRating?: Number, 
+  Weight?: Number, 
+  MedicalDetails?: String, 
+  AdmitDate?: String, 
+  DischargeDate?: String, 
+  PatientID?: String, 
+  PhoneNumber?: Number, 
+  Height?: Number, 
+  LastName?: String, 
+  Age?: Number, 
+  BloodType?: String, 
+  _?: Any
+}
+
