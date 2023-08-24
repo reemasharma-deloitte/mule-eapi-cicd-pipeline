@@ -12,7 +12,7 @@ api:
   autodiscoveryID: "18911956"
 
 httpRequest:
-  host: "mule-hospital-bed-availability-papi.us-e2.cloudhub.io"
+  host: "mule-hospital-bed-availability-process-api.us-e2.cloudhub.io"
   getAllHospitals: "api/hospitals/allHospitals"
   getHospitalById: "api/hospitals/allHospitals/{hospitalId}"
   getAllPatients: "api/patient/allPatients"
